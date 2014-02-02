@@ -2,7 +2,7 @@
 
 > Makes working with dates from Moves API a bit easier
 
-This module makes working with the Moves API slightly easier. Moves is a great service with a good API, but they return dates in ISO8601 basic format[^basic] which JavaScript does not like.
+This module makes working with the Moves API slightly easier. Moves is a great service with a good API, but they return dates in ISO8601 basic format[1] which JavaScript does not like.
 
 ``` javascript
 var date = new Date('20121212T071430Z');
@@ -31,4 +31,4 @@ dates.parseISODate('20121212T071430Z');
 // => Date('2012-12-12 07:14:30Z')
 ```
 
-[^basic]: Basically ISO8601 dates without dashes and colons. So 2014-01-01 => 20140101
+[1]: Basically ISO8601 dates without dashes and colons. So 2014-01-01 => 20140101
