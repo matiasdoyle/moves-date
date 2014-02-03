@@ -1,0 +1,20 @@
+{
+  "name": "moves-date",
+  "version": "0.0.0",
+  "description": "Takes away the pain of working with Moves API dates",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha -R spec"
+  },
+  "keywords": [
+    "moves", "date"
+  ],
+  "author": "Matias Doyle <hello@matiasdoyle.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "~1.17.1"
+  }
+}
