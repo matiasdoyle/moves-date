@@ -9,6 +9,11 @@
   "scripts": {
     "test": "./node_modules/.bin/mocha -R spec"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/matiasdoyle/moves-date.git"
+  },
+  "readmeFilename": "README.md",
   "keywords": [
     "moves", "date"
   ],
