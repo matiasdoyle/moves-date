@@ -1,4 +1,4 @@
-# Moves Date
+# Moves Date [![Build Status](https://travis-ci.org/matiasdoyle/moves-date.png?branch=master)](https://travis-ci.org/matiasdoyle/moves-date)
 
 > Makes working with dates from Moves API a bit easier
 
