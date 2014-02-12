@@ -11,6 +11,7 @@ exports.month = month;
 exports.range = range;
 exports.parse = parse;
 exports.parseISODate = parseISODate;
+exports.dateKeys = ['date', 'startTime', 'endTime', 'time', 'firstDate'];
 
 /**
  * Format date to YYYY-MM-DD format
@@ -81,8 +82,6 @@ function range(from, to) {
  *                  JavaScript Date instances.
  */
 function parse(data) {
-  var dateKeys = ['date', 'startTime', 'endTime', 'time', 'firstDate'];
-
   if (Array.isArray(data)) {
     for (var i=0; i<data.length; i++) {
       data[i] = parse(data[i]);
@@ -92,7 +91,7 @@ function parse(data) {
       if (Array.isArray(data[key]) || typeof data[key] == 'object')
         data[key] = parse(data[key]);
 
-      if (dateKeys.indexOf(key) > -1)
+      if (exports.dateKeys.indexOf(key) > -1)
         data[key] = parseISODate(data[key]);
     }
   }

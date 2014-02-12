@@ -70,6 +70,20 @@ describe('Dates', function() {
       var res = dates.parse(data);
       assert(res.profile.firstDate instanceof Date);
     });
+
+    it('should handle changes to dateKeys array', function() {
+      var data = { foo: '20130801' };
+      var keys = dates.dateKeys;
+
+      dates.dateKeys = ['foo'];
+
+      var res = dates.parse(data);
+
+      assert(res.foo instanceof Date, 'res.foo instance of Date');
+
+      // Restore dateKeys
+      dates.dateKeys = keys;
+    });
   });
 
   describe('#parseISODate', function() {
