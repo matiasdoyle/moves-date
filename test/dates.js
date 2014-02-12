@@ -54,6 +54,7 @@ describe('Dates', function() {
       assert(day.date instanceof Date);
       assert(day.segments[0].startTime instanceof Date);
       assert(day.segments[0].endTime instanceof Date);
+      assert(day.lastUpdate instanceof Date);
     });
 
     it('should support nested objects', function() {

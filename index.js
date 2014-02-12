@@ -11,7 +11,7 @@ exports.month = month;
 exports.range = range;
 exports.parse = parse;
 exports.parseISODate = parseISODate;
-exports.dateKeys = ['date', 'startTime', 'endTime', 'time', 'firstDate'];
+exports.dateKeys = ['date', 'startTime', 'endTime', 'time', 'firstDate', 'lastUpdate'];
 
 /**
  * Format date to YYYY-MM-DD format

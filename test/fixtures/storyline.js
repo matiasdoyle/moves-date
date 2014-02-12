@@ -50,5 +50,6 @@ module.exports = [{
         }
       ]
     }
-  ]
+  ],
+  lastUpdate: "20130317T121143Z"
 }];
