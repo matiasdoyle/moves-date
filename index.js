@@ -120,7 +120,8 @@ function parseISODate(str) {
   if (str.indexOf('T') > -1) {
     date += 'T' + str.substr(9, 2) + ':';
     date += str.substr(11, 2) + ':';
-    date += str.substr(13, 2) + 'Z';
+    date += str.substr(13, 2);
+    date += str.substr(15);
   }
 
   return new Date(date);

@@ -101,5 +101,12 @@ describe('Dates', function() {
 
       assert.equal(expectedDate.getTime(), parsed.getTime());
     });
+
+    it('should parse dates with time zone designator', function() {
+      var expectedUTCString = 'Wed, 12 Dec 2012 05:46:17 GMT';
+      var parsed = dates.parseISODate('20121212T074617+0200');
+
+      assert.equal(parsed.toUTCString(), expectedUTCString);
+    });
   });
 });
