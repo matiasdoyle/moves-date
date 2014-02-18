@@ -1,6 +1,6 @@
 {
   "name": "moves-date",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Takes away the pain of working with Moves API dates",
   "main": "index.js",
   "devDependencies": {
