@@ -24,6 +24,8 @@ dates.month(new Date('2014-01-01'));
 // => '201401'
 dates.range(new Date('2014-01-01'), new Date('2014-01-05'));
 // => { from: '20140101', to: '20140105' }
+dates.timestamp(new Date('2014-01-01 12:34:56'));
+// => '20140101T123456Z'
 
 dates.parse(JSONDataFromAPI);
 // => Dates in the JSON data initialised as Date instances

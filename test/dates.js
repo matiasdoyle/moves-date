@@ -46,6 +46,13 @@ describe('Dates', function() {
     });
   });
 
+  describe('#timestamp', function() {
+    it('should return a string with the date formatted YYYYMMDDTHHMMSSZ', function() {
+      var str = dates.timestamp(new Date('2013-08-23 10:10:10'));
+      assert.equal(str, '20130823T101010Z');
+    })
+  });
+
   describe('#parse', function() {
     it('should support parsing larger objects', function() {
       var res = dates.parse(storyline);

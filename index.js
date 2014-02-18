@@ -9,6 +9,7 @@ exports.day = day;
 exports.week = week;
 exports.month = month;
 exports.range = range;
+exports.timestamp = timestamp;
 exports.parse = parse;
 exports.parseISODate = parseISODate;
 exports.dateKeys = ['date', 'startTime', 'endTime', 'time', 'firstDate', 'lastUpdate'];
@@ -68,6 +69,16 @@ function range(from, to) {
     from: format(from, true),
     to: format(to, true)
   };
+}
+
+/**
+ * Format date to YYYYMMDDTHHMMSSZ string
+ * 
+ * @param  {Date} date
+ * @return {String} `date` formatted as YYYYMMDDTHHMMSSZ string
+ */
+function timestamp(date) {
+  return format(date, true, true);
 }
 
 /**
@@ -131,10 +142,12 @@ function parseISODate(str) {
 // Internal functions
 //
 
-function format(date, month) {
+function format(date, month, time) {
   return date.getFullYear() +
          zeroFill(date.getMonth() + 1) +
-         (month ? zeroFill(date.getDate()) : '');
+         (month ? zeroFill(date.getDate()) : '') +
+         (time ?  'T' + zeroFill(date.getHours()) + zeroFill(date.getMinutes()) +
+            zeroFill(date.getSeconds()) + 'Z' : '');
 }
 
 function zeroFill(n) {
