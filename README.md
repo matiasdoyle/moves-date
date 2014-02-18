@@ -17,13 +17,13 @@ The main reason behind this module is to help with formatting dates returned by 
 var dates = require('moves-date');
 
 dates.day(new Date('2014-01-01'));
-// => '2014-01-01'
+// => '20140101'
 dates.week(new Date('2014-01-01'));
 // => '2014-W01'
 dates.month(new Date('2014-01-01'));
-// => '2014-01'
+// => '201401'
 dates.range(new Date('2014-01-01'), new Date('2014-01-05'));
-// => { from: '2014-01-01', to: '2014-01-05' }
+// => { from: '20140101', to: '20140105' }
 
 dates.parse(JSONDataFromAPI);
 // => Dates in the JSON data initialised as Date instances

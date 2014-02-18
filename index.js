@@ -14,12 +14,12 @@ exports.parseISODate = parseISODate;
 exports.dateKeys = ['date', 'startTime', 'endTime', 'time', 'firstDate', 'lastUpdate'];
 
 /**
- * Format date to YYYY-MM-DD format
+ * Format date to YYYYMMDD format
  *
  * Used to get single days for Moves
  * 
  * @param  {Date} date
- * @return {String} `date` formatted as YYYY-MM-DD string
+ * @return {String} `date` formatted as YYYYMMDD string
  */
 function day(date) {
   return format(date, true);
@@ -46,10 +46,10 @@ function week(date) {
 }
 
 /**
- * Format date to YYYY-MM string
+ * Format date to YYYYMM string
  * 
  * @param  {Date} date The date which to extract the month
- * @return {String} `date` formatted as YYYY-MM string
+ * @return {String} `date` formatted as YYYYMM string
  */
 function month(date) {
   return format(date, false);
@@ -131,10 +131,10 @@ function parseISODate(str) {
 // Internal functions
 //
 
-function format(date, withMonth) {
-  return date.getFullYear() + '-' +
+function format(date, month) {
+  return date.getFullYear() +
          zeroFill(date.getMonth() + 1) +
-         (withMonth ? + ('-' + zeroFill(date.getDate())) : '');
+         (month ? zeroFill(date.getDate()) : '');
 }
 
 function zeroFill(n) {

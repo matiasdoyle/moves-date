@@ -5,9 +5,9 @@ var storyline = require('./fixtures/storyline');
 
 describe('Dates', function() {
   describe('#day', function() {
-    it('should return a string with the date formatted YYYY-MM-DD', function() {
+    it('should return a string with the date formatted YYYYMMDD', function() {
       var str = dates.day(new Date('2013-08-23'));
-      assert.equal(str, '2013-08-23');
+      assert.equal(str, '20130823');
     });
   });
 
@@ -29,20 +29,20 @@ describe('Dates', function() {
   });
 
   describe('#month', function() {
-    it('should return a string with the date formatted YYYY-MM', function() {
+    it('should return a string with the date formatted YYYYMM', function() {
       var str = dates.month(new Date('2013-08-23'));
-      assert.equal(str, '2013-08');
+      assert.equal(str, '201308');
     });
   });
 
   describe('#range', function() {
-    it('should return an object with the `from`, `to` formatted YYYY-MM-DD', function() {
+    it('should return an object with the `from`, `to` formatted YYYYMMDD', function() {
       var from = new Date('2013-08-20');
       var to = new Date('2013-08-23');
       var range = dates.range(from, to);
     
-      assert.equal(range.from, '2013-08-20');
-      assert.equal(range.to, '2013-08-23');
+      assert.equal(range.from, '20130820');
+      assert.equal(range.to, '20130823');
     });
   });
 
