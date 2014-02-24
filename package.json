@@ -4,13 +4,14 @@
   "description": "Takes away the pain of working with Moves API dates",
   "main": "index.js",
   "devDependencies": {
-    "mocha": "~1.17.1"
+    "mocha": "~1.17.1",
+    "jshint": "~2.4.4"
   },
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha -R spec"
+    "test": "./node_modules/.bin/jshint index.js && ./node_modules/.bin/mocha -R spec"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,8 @@
   },
   "readmeFilename": "README.md",
   "keywords": [
-    "moves", "date"
+    "moves",
+    "date"
   ],
   "author": "Matias Doyle <hello@matiasdoyle.com>",
   "license": "MIT"
