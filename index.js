@@ -36,14 +36,14 @@ function day(date) {
  */
 function week(date) {
   var d = new Date(+date);
-  var year, week;
+  var y, w;
 
   d.setHours(0, 0, 0);
   d.setDate(d.getDate() + 4 - (d.getDay()||7));
 
-  year = new Date(d.getFullYear(), 0, 1);
-  week = Math.ceil((((d - year) / DAY_M) + 1) / 7);
-  return d.getFullYear() + '-W' + zeroFill(week);
+  y = new Date(d.getFullYear(), 0, 1);
+  w = Math.ceil((((d - y) / DAY_M) + 1) / 7);
+  return d.getFullYear() + '-W' + zeroFill(w);
 }
 
 /**
@@ -108,7 +108,7 @@ function parse(data) {
   }
 
   return data;
-};
+}
 
 /**
  * Parse YYYYMMDDTHHMMSSZ strings
