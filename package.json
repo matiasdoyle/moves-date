@@ -4,7 +4,7 @@
   "description": "Takes away the pain of working with Moves API dates",
   "main": "index.js",
   "devDependencies": {
-    "docco": "^0.6.3",
+    "docco": "~0.6.3",
     "jshint": "~2.4.4",
     "mocha": "~1.17.1"
   },
