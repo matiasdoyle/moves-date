@@ -1,15 +1,17 @@
-# Moves Date [![Build Status](https://travis-ci.org/matiasdoyle/moves-date.png?branch=master)](https://travis-ci.org/matiasdoyle/moves-date)
+# moves-date [![Build Status](https://travis-ci.org/matiasdoyle/moves-date.png?branch=master)](https://travis-ci.org/matiasdoyle/moves-date)
 
-> Makes working with dates from Moves API a bit easier
-
-This module makes working with the Moves API slightly easier. Moves is a great service with a good API, but they return dates in ISO8601 basic format[1] which JavaScript does not like.
+[Moves](http://moves-app.com/) is a great service and has a powerful API, but they return and require dates formatted in [ISO8601 basic format](https://en.wikipedia.org/wiki/ISO_8601). Which JavaScript does not like:
 
 ``` javascript
 var date = new Date('20121212T071430Z');
-console.log(isNaN(date); // => true
+console.log(isNaN(date)); // => true
 ```
 
-The main reason behind this module is to help with formatting dates returned by the API and creating date strings used for querying the API.
+This module makes working with the Moves API a bit easier. It has functions for creating ISO8601 basic format strings and parsing them. See below for usage.
+
+## Installation
+
+	npm install moves-date
 
 ## Usage
 
@@ -18,19 +20,27 @@ var dates = require('moves-date');
 
 dates.day(new Date('2014-01-01'));
 // => '20140101'
+
 dates.week(new Date('2014-01-01'));
 // => '2014-W01'
+
 dates.month(new Date('2014-01-01'));
 // => '201401'
+
 dates.range(new Date('2014-01-01'), new Date('2014-01-05'));
 // => { from: '20140101', to: '20140105' }
+
 dates.timestamp(new Date('2014-01-01 12:34:56'));
 // => '20140101T123456Z'
 
-dates.parse(JSONDataFromAPI);
-// => Dates in the JSON data initialised as Date instances
+dates.parse(dataFromAPI);
+// => Returns object with the dates initialised as Date instances.
+
 dates.parseISODate('20121212T071430Z');
 // => Date('2012-12-12 07:14:30Z')
 ```
 
-[1]: Basically ISO8601 dates without dashes and colons. So 2014-01-01 => 20140101
+## License
+
+See [LICENSE.md](https://github.com/matiasdoyle/moves-date/blob/master/LICENSE.md).
+
