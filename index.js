@@ -14,26 +14,34 @@ exports.parse = parse;
 exports.parseISODate = parseISODate;
 exports.dateKeys = ['date', 'startTime', 'endTime', 'time', 'firstDate', 'lastUpdate'];
 
-/**
- * Format date to YYYYMMDD format
- *
- * Used to get single days for Moves
- * 
- * @param  {Date} date
- * @return {String} `date` formatted as YYYYMMDD string
- */
+// ## Format date to YYYYMMDD
+//
+// Used to get single days for Moves.
+//
+// The `date` parameter expects a Date instance. Will return a string with
+// the date formatted `YYYYMMDD`.
+//
+// Usage:
+//
+//     > dates.day(new Date('2014-01-01'));
+//     '20140101'
+
 function day(date) {
   return format(date, true);
 }
 
-/**
- * Format a date to ISO8601 Week
- *
- * Original code taken from http://stackoverflow.com/a/6117889
- * 
- * @param  {Date} date Date to format to
- * @return {String} `date` formatted to YYYY-Www string
- */
+
+// ## Format a date to ISO8601 Week
+//
+// Original code found [here](http://stackoverflow.com/a/6117889). The
+// `date` parameter expects a Date instance and will return a string
+// in the format `YYYY-Www`.
+//
+// Usage:
+//
+//     > dates.week(new Date('2014-01-01'));
+//     '2014-W01'
+
 function week(date) {
   var d = new Date(+date);
   var y, w;
@@ -46,24 +54,33 @@ function week(date) {
   return d.getFullYear() + '-W' + zeroFill(w);
 }
 
-/**
- * Format date to YYYYMM string
- * 
- * @param  {Date} date The date which to extract the month
- * @return {String} `date` formatted as YYYYMM string
- */
+// ## Format date to YYYYMM
+//
+// Takes a `Date` instance and 'extracts' the month giving a
+// string in the format `YYYYMM`.
+//
+// Usage:
+//
+//     > dates.month(new Date('2014-01-01'));
+//     '201401'
+
 function month(date) {
   return format(date, false);
 }
 
-/**
- * Create a from/to range which can be used with querystring/as
- * parameters.
- * 
- * @param {Date} from
- * @param {Date} to
- * @return {Object}
- */
+
+// ## Create from/to range
+//
+// Creates a from/to range which can be used with `querystring`.
+//
+// Both `from` and `to` should be Date instances. Returns an object with
+// string properties `from`/`to` in the format `YYYYMMDD`.
+//
+// Usage:
+//
+//     > dates.range(new Date('2014-01-01'), new Date('2014-01-05'));
+//     { from: '20140101', to: '20140105' }
+
 function range(from, to) {
   return {
     from: format(from, true),
@@ -71,27 +88,27 @@ function range(from, to) {
   };
 }
 
-/**
- * Format date to YYYYMMDDTHHMMSSZ string
- * 
- * @param  {Date} date
- * @return {String} `date` formatted as YYYYMMDDTHHMMSSZ string
- */
+
+// ## Format date to a timestamp string
+//
+// Returns a string in the format `YYYYMMDDTHHMMSSZ`
+//
+// Usage:
+//
+//     > dates.timestamp(new Date('2014-01-01T10:00:00Z'));
+//     '20140101T100000Z'
+
 function timestamp(date) {
   return format(date, true, true);
 }
 
-/**
- * Parse the result returned from the API.
- *
- * The API returns dates in the ISO8601 basic format which JavaScript
- * is not very happy about. This function walks the returned object
- * and initilises the date stings to valid JavaScript Date objects.
- * *
- * @param data {Object} JSON data returned from the API.
- * @return {Object} The data passed in the param, but with the dates as
- *                  JavaScript Date instances.
- */
+
+// ## Parse results returned from the API
+//
+// The API returns dates in the ISO8601 basic format which JavaScript
+// is not very happy about. This function walks the returned object
+// and initilises the date stings to valid JavaScript Date objects.
+
 function parse(data) {
   if (Array.isArray(data)) {
     for (var i=0; i<data.length; i++) {
@@ -110,15 +127,16 @@ function parse(data) {
   return data;
 }
 
-/**
- * Parse YYYYMMDDTHHMMSSZ strings
- *
- * Takes strings formatted in YYYYMMDDTHHMMSSZ (ISO8601 basic) and creates
- * valid Date instances.
- * 
- * @param {String} str Date to be converted
- * @return {Date} Date instance
- */
+// ## Parse YYYYMMDDTHHMMSSZ strings
+//
+// Takes strings formatted in `YYYYMMDDTHHMMSSZ` (ISO8601 basic) and creates
+// valid Date instances.
+//
+// Usage:
+//
+//     > dates.parseISODate('20140101T100000Z');
+//     Date('2014-01-01T10:00:00Z')
+
 function parseISODate(str) {
   var date = '';
 

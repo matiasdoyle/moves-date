@@ -4,14 +4,16 @@
   "description": "Takes away the pain of working with Moves API dates",
   "main": "index.js",
   "devDependencies": {
-    "mocha": "~1.17.1",
-    "jshint": "~2.4.4"
+    "docco": "^0.6.3",
+    "jshint": "~2.4.4",
+    "mocha": "~1.17.1"
   },
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "./node_modules/.bin/jshint index.js && ./node_modules/.bin/mocha -R spec"
+    "test": "./node_modules/.bin/jshint index.js && ./node_modules/.bin/mocha -R spec",
+    "docs": "./node_modules/.bin/docco index.js"
   },
   "repository": {
     "type": "git",
